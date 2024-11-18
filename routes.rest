@@ -1,0 +1,58 @@
+//REST Testing
+
+//Subscribers
+GET http://localhost:3000/subscribers
+
+###
+GET http://localhost:3000/subscribers/6738efe3ade1ef7c6051fbf6
+
+###
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "Subscriber 11",
+    "subscribeToChannel": "Tahmid's channel"
+}
+
+###
+DELETE http://localhost:3000/subscribers/673933e053c7cfcfbea8a919
+
+###
+PATCH http://localhost:3000/subscribers/
+Content-Type: application/json
+{
+    "name": "Subscriber 8"
+}
+
+###
+////////////////////////////////////////////////////////////////////Inventory
+//REST Testing
+
+//Inventory
+GET http://localhost:3000/inventory
+
+###
+GET http://localhost:3000/inventory/673b294c60f8cb4b2b5fec52
+
+###
+POST http://localhost:3000/inventory
+Content-Type: application/json
+
+{
+    "item": "Coming soon",
+    "price": 99.00
+}
+
+###
+DELETE http://localhost:3000/inventory/673b29dd60f8cb4b2b5fec62
+
+###
+//use this with a button to update ordered from false to true. Like "BUY" button
+PATCH http://localhost:3000/inventory/673b290060f8cb4b2b5fec4f
+Content-Type: application/json
+
+{
+    "ordered": false
+}
+
