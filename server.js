@@ -17,11 +17,10 @@ db.once('open', () => console.log('Connected to Database'))
 app.use(express.json())
 
 //Base express
-const subscribersRouter = require('./routes/subscribers')
-app.use('/subscribers', subscribersRouter)
 
-const inventoryRouter = require ('./routes/inventory')
-app.use('/inventory', inventoryRouter)
 
-const PORT = process.env.PORT || 3000;
+const productRouter = require ('./routes/product')
+app.use('/product', productRouter)
+
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

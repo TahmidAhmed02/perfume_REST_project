@@ -22,8 +22,8 @@ const subscriberSchema = new mongoose.Schema({
 }
 )
 
-//Inventory Database
-const inventorySchema = new mongoose.Schema({
+//Product Database
+const productSchema = new mongoose.Schema({
     item: {
         type: String,
         required: true
@@ -43,6 +43,6 @@ const inventorySchema = new mongoose.Schema({
 
 //named Schema
 module.exports = {
-    Inventory: mongoose.model('Inventory', inventorySchema),
+    Product: mongoose.model('Product', productSchema),
     Subscriber: mongoose.model('Subscriber', subscriberSchema),
 };

@@ -1,28 +1,32 @@
 
+###
+////////////////////////////////////////////////////////////////////Products
+//REST Testing
 
 //Inventory
-GET http://localhost:3000/inventory
+GET http://localhost:5000/product
 
 ###
-GET http://localhost:3000/inventory/673b294c60f8cb4b2b5fec52
+GET http://localhost:5000/product/673f30b55a93805ed3dd93bf
 
 ###
-POST http://localhost:3000/inventor
+POST http://localhost:5000/product
 Content-Type: application/json
 
 {
- 
+    "item": "Home",
+    "price": 99.00
 }
 
 ###
-DELETE http://localhost:3000/inventory
+DELETE http://localhost:5000/product/673f30b55a93805ed3dd93bf
 
 ###
 //use this with a button to update ordered from false to true. Like "BUY" button
-PATCH http://localhost:3000/inventory/673b290060f8cb4b2b5fec4f
+PATCH http://localhost:5000/product/673f30ab5a93805ed3dd93bc
 Content-Type: application/json
 
 {
-    "ordered": false
+    "ordered": true
 }
 
