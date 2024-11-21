@@ -23,4 +23,5 @@ app.use('/subscribers', subscribersRouter)
 const inventoryRouter = require ('./routes/inventory')
 app.use('/inventory', inventoryRouter)
 
-app.listen(3000, () => console.log('Starting server on local 3000'))
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

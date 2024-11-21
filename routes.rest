@@ -1,33 +1,4 @@
-//REST Testing
 
-//Subscribers
-GET http://localhost:3000/subscribers
-
-###
-GET http://localhost:3000/subscribers/6738efe3ade1ef7c6051fbf6
-
-###
-POST http://localhost:3000/subscribers
-Content-Type: application/json
-
-{
-    "name": "Subscriber 11",
-    "subscribeToChannel": "Tahmid's channel"
-}
-
-###
-DELETE http://localhost:3000/subscribers/673933e053c7cfcfbea8a919
-
-###
-PATCH http://localhost:3000/subscribers/
-Content-Type: application/json
-{
-    "name": "Subscriber 8"
-}
-
-###
-////////////////////////////////////////////////////////////////////Inventory
-//REST Testing
 
 //Inventory
 GET http://localhost:3000/inventory
