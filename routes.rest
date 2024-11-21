@@ -7,16 +7,15 @@ GET http://localhost:3000/inventory
 GET http://localhost:3000/inventory/673b294c60f8cb4b2b5fec52
 
 ###
-POST http://localhost:3000/inventory
+POST http://localhost:3000/inventor
 Content-Type: application/json
 
 {
-    "item": "Coming soon",
-    "price": 99.00
+ 
 }
 
 ###
-DELETE http://localhost:3000/inventory/673b29dd60f8cb4b2b5fec62
+DELETE http://localhost:3000/inventory
 
 ###
 //use this with a button to update ordered from false to true. Like "BUY" button
