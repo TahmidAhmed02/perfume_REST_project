@@ -7,19 +7,19 @@
 GET http://localhost:5000/product
 
 ###
-GET http://localhost:5000/product/673f30b55a93805ed3dd93bf
+GET http://localhost:5000/product/673f30ab5a93805ed3dd93bc
 
 ###
 POST http://localhost:5000/product
 Content-Type: application/json
 
 {
-    "item": "Home",
+    "item": "Item 3",
     "price": 99.00
 }
 
 ###
-DELETE http://localhost:5000/product/673f30b55a93805ed3dd93bf
+DELETE http://localhost:5000/product/674098d62da2ced83aba8277
 
 ###
 //use this with a button to update ordered from false to true. Like "BUY" button
