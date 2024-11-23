@@ -52,6 +52,24 @@ router.patch('/:id', getProduct, async (req, res) => {
     }  
 })
 
+router.patch('/:id/toggleOrder', async(req, res) => {
+    try{
+        const product = await Product.findById(req.params.id);
+    
+        if(!product){
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        product.ordered = !product.ordered;
+        console.log(`Toggled ordered status for ${product.item}: ${product.ordered}`);
+
+        const updatedProduct = await product.save();
+        res.json(updatedProduct);
+    }catch(error) {
+        res.status(400).json({message: error.message})
+    }
+})
+
+
 // Deleting one
 router.delete('/:id', getProduct, async (req, res) => {
     try {

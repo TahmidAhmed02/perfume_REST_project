@@ -15,3 +15,5 @@ export default function Product() {
   );
 }
 
+//logic for cart. Click 'add to cart' using '?' logic to switch between true and false 
+//all trues are sent to /cart page

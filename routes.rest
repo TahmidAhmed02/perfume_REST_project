@@ -19,14 +19,11 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/product/674098d62da2ced83aba8277
+DELETE http://localhost:5000/product/6740d1b5e43b451e045d5165
 
 ###
 //use this with a button to update ordered from false to true. Like "BUY" button
-PATCH http://localhost:5000/product/673f30ab5a93805ed3dd93bc
+PATCH http://localhost:5000/product/6740d1aee43b451e045d5161/toggleOrder
 Content-Type: application/json
 
-{
-    "ordered": true
-}
 
