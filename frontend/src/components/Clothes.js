@@ -2,29 +2,25 @@ import React, { useState, useEffect } from "react";
 
 export default function Clothes() {
   const [clothes, setClothes] = useState([]);
-  const [status, setStatus] = useState(false);
 
-  async function handleOnclick(id) {
-    await fetch(`http://localhost:5000/product/${id._id}/toggleOrder`, {
+  // Function to handle button click
+  async function handleOnclick(item) {
+    await fetch(`http://localhost:5000/product/${item._id}/toggleOrder`, {
       method: "PATCH",
     });
 
-    // Fetch the updated data after the PATCH request completes
-    fetchData(id);
+
+    // Update the specific item's ordered status locally
+    setClothes((prevClothes) =>
+      prevClothes.map((clothingItem) =>
+        clothingItem._id === item._id
+          ? { ...clothingItem, ordered: !clothingItem.ordered }
+          : clothingItem
+      )
+    );
   }
 
-  const fetchData = (id) => {
-    fetch(`http://localhost:5000/product/${id._id}`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch data");
-        return res.json();
-      })
-      .then((data) => {
-        setStatus(data.ordered); // Update state with fetched data
-      })
-      .catch((error) => console.error("Error:", error));
-  };
-
+  // Fetch the initial clothes data
   useEffect(() => {
     fetch("http://localhost:5000/product")
       .then((res) => {
@@ -39,21 +35,19 @@ export default function Clothes() {
       .catch((error) => console.error("Fetch error:", error));
   }, []);
 
-  // Log `status` whenever it updates
-  useEffect(() => {
-    console.log("Updated status:", status);
-  }, [status]);
-
   return (
     <div>
       <h1>Clothes</h1>
-      <h1>Ordered Status: {status ? "True" : "False"}</h1>
       <ul>
         {clothes.map((item) => (
           <li key={item._id}>
             <strong>Item:</strong> {item.item}
-            <br /> <strong>Price:</strong> £{item.price}
-            <button onClick={() => handleOnclick(item)}>ADD TO CART</button>
+            <br />
+            <strong>Price:</strong> £{item.price}
+            <br />
+            <button onClick={() => handleOnclick(item)}>
+              {item.ordered ? "Remove from cart" : "Add to cart"}
+            </button>
           </li>
         ))}
       </ul>

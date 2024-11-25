@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/product/6740d1b5e43b451e045d5165
+DELETE http://localhost:5000/product/6743b81525b2acbc24528b23
 
 ###
 //use this with a button to update ordered from false to true. Like "BUY" button
