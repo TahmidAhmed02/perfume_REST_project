@@ -14,12 +14,13 @@ POST http://localhost:5000/product
 Content-Type: application/json
 
 {
-    "item": "Item 3",
-    "price": 99.00
+    "item": "Item 6",
+    "price": 99.00,
+    "category": "Clothes" 
 }
 
 ###
-DELETE http://localhost:5000/product/6743b81525b2acbc24528b23
+DELETE http://localhost:5000/product/6745cfb600bed70e67b65047
 
 ###
 //use this with a button to update ordered from false to true. Like "BUY" button

@@ -33,13 +33,18 @@ const productSchema = new mongoose.Schema({
         required: true,
         min: 0 // Price must be a positive number
     },
+    category: {
+        type: String,
+        required: true,
+        enum: ['Perfumes', 'Clothes', 'Accessories'] // Restrict to these three values
+    },
     ordered: {
         type: Boolean,
         default: false // Default to false if not specified
     }
 });
 
- 
+
 
 //named Schema
 module.exports = {
