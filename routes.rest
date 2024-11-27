@@ -14,9 +14,9 @@ POST http://localhost:5000/product
 Content-Type: application/json
 
 {
-    "item": "Item 6",
+    "item": "Item 5",
     "price": 99.00,
-    "category": "Clothes" 
+    "category": "Perfumes" 
 }
 
 ###

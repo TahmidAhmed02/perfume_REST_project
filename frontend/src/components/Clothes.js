@@ -26,7 +26,6 @@ export default function Clothes() {
           : clothingItem // If IDs don't match, return as is
       )
     );
-    
   }
 
   function liveItem(event) {
@@ -39,15 +38,15 @@ export default function Clothes() {
     setRadioInput(event.target.value)
   }
 
+
   async function handleCreate(event) {
-    console.log(`"${itemInput}"   ${priceInput}    "${radioInput}"`)
      const newProduct = {
       "item": `${itemInput}`,
       "price": priceInput,
       "category": `${radioInput}`
   }
-  console.log(newProduct)
-  //Allow for reset input, live updating, seperation of concern 
+  //Allow for reset input, seperation of concern 
+  //problems: perfume/acces selection, missing input submission, 
 
     try{
       await fetch("http://localhost:5000/product", {
@@ -60,8 +59,8 @@ export default function Clothes() {
   }catch(error) {
     console.error("Error creating product:", error);
   }
-
-    
+  fetchClothes();
+  
   }
 
   async function handleDelete(item) {
@@ -76,12 +75,15 @@ export default function Clothes() {
   }catch(error) {
     console.error("Error creating product:", error);
   }
-
-    
+  fetchClothes();
   }
 
   // Fetch the initial clothes data
   useEffect(() => {
+    fetchClothes();
+  }, []); 
+  
+  const fetchClothes = () => {
     fetch("http://localhost:5000/product")
       .then((res) => {
         if (!res.ok) {
@@ -93,7 +95,7 @@ export default function Clothes() {
         setClothes(data);
       })
       .catch((error) => console.error("Fetch error:", error));
-  }, []);
+  };
 
   return (
     <div>
