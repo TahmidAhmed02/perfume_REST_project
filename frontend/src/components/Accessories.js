@@ -1,10 +1,42 @@
 import React, { useState, useEffect } from "react";
+import {
+  fetchService,
+  createProductService,
+  toggleOrderService,
+  deleteProductService} from '../fetch/fetchService'
 
-export default function Clothes() {
-  const [clothes, setClothes] = useState([]);
+export default function Accessories() {
+  const [accessories, setAccessories] = useState([]);
   const [itemInput, setItemInput] = useState('')
   const [priceInput, setPriceInput] = useState('')
   const [radioInput, setRadioInput] = useState('');
+
+  const fetchAccessories = async () => {
+    try {
+      const data = await fetchService();
+      setAccessories(data);
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
+  
+  const handleCreate = async () => {
+    if (!itemInput || !priceInput || !radioInput) {
+      alert("All fields must be filled out.");
+      return;
+    }
+    const newProduct = {
+      item: itemInput,
+      price: priceInput,
+      category: radioInput,
+    };
+    try {
+      await createProductService(newProduct);
+      fetchAccessories(); // Refresh data
+    } catch (error) {
+      console.error("Error creating product:", error);
+    }
+  };
 
   // Function to handle CART toggle click
   async function handleOnclick(item) {
@@ -13,115 +45,77 @@ export default function Clothes() {
     }
   );
 
-
-    // Update the specific item's ordered status locally
-    setClothes((prevClothes) =>
-      prevClothes.map((clothingItem) =>
-        clothingItem._id === item._id
-          ? clothingItem.category === "Accessories" // Check if the category is "Clothes"
-            ? { ...clothingItem, ordered: !clothingItem.ordered } // Toggle the ordered status
-            : clothingItem // If not "Clothes", return as is
-          : clothingItem // If IDs don't match, return as is
-      )
-    );
-    
-  }
-
-  function liveItem(event) {
-    setItemInput(event.target.value)
-  }
-  function livePrice(event) {
-    setPriceInput(event.target.value)
-  }
-  function liveRadio(event) {
-    setRadioInput(event.target.value)
-  }
-
-
-  async function handleCreate(event) {
-    
-     const newProduct = {
-      "item": `${itemInput}`,
-      "price": priceInput,
-      "category": `${radioInput}`
-  }
-  //Allow for reset input, seperation of concern 
-  //problems: perfume/acces selection, missing input submission, 
-
     try{
-      await fetch("http://localhost:5000/product", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      });
-  }catch(error) {
-    console.error("Error creating product:", error);
+      await toggleOrderService(item._id);
+      setAccessories((prevAccessories) =>
+        prevAccessories.map((accessoriesItem) =>
+          accessoriesItem._id === item._id
+            ? accessoriesItem.category === "Accessories" // Check if the category is "Accessories"
+              ? { ...accessoriesItem, ordered: !accessoriesItem.ordered } // Toggle the ordered status
+              : accessoriesItem // If not "Accessories", return as is
+            : accessoriesItem // If IDs don't match, return as is
+      )
+    );}catch (error) {
+      console.error("Error toggling order:", error);
+    }
   }
-
-  fetchClothes(); // Refresh data
-
-  }
-
 
   //DELETE
-  async function handleDelete(item) {
-    try{
-      await fetch(`http://localhost:5000/product/${item._id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-  }catch(error) {
-    console.error("Error creating product:", error);
-  }
-  fetchClothes(); // Refresh data
+  const handleDelete = async (item) => {
+    try {
+      await deleteProductService(item._id);
+      fetchAccessories(); // Refresh data
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
 
-  }
-
-  // Fetch the initial clothes data
+  // Fetch the initial Accessories data
   useEffect(() => {
-    fetchClothes();
+    fetchAccessories();
   }, []); 
   
-  const fetchClothes = () => {
-    fetch("http://localhost:5000/product")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("HTTP error!");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setClothes(data);
-      })
-      .catch((error) => console.error("Fetch error:", error));
-  };
+
 
   return (
     <div>
       <h1>Accessories</h1>
       <h3>Create Inventory</h3>
+      <label htmlFor="item">
+        Item <input type="text" id="item" onChange={(e) => setItemInput(e.target.value)} />
+      </label>
+      <label htmlFor="price">
+        Price <input type="number" id="price" onChange={(e) => setPriceInput(e.target.value)} />
+      </label>
+      <input
+        type="radio"
+        id="clothes"
+        name="color"
+        value="Clothes"
+        onChange={(e) => setRadioInput(e.target.value)}
+      />
+      <label htmlFor="clothes">Clothes</label>
+      <input
+        type="radio"
+        id="Perfumes"
+        name="color"
+        value="Perfumes"
+        onChange={(e) => setRadioInput(e.target.value)}
+      />
+      <label htmlFor="Perfumes">Perfumes</label>
+      <input
+        type="radio"
+        id="accessories"
+        name="color"
+        value="Accessories"
+        onChange={(e) => setRadioInput(e.target.value)}
+      />
+      <label htmlFor="accessories">Accessories</label>
+      <button onClick={handleCreate}>Submit</button>
 
-        <label htmlFor='item'>Item <input type='text' id="item" onChange={liveItem}/></label>
-        <label htmlFor='price'>Price <input type='number' id="price" onChange={livePrice}/></label>
-
-        <input type='radio' id="clothes" name="color" value='Clothes' onChange={liveRadio}/>
-        <label htmlFor='clothes'>Clothes</label>
-        <input type='radio' id="Perfumes" name="color" value='Perfumes' onChange={liveRadio}/>
-        <label htmlFor='Perfumes'>Perfumes</label>
-        <input type='radio' id="Accessories" name="color" value='Accessories' onChange={liveRadio}/>
-        <label htmlFor='Accessories'>Accessories</label>
-      
-        <button onClick={handleCreate}>Submit</button>
-
-      
       <ul>
-
-        {clothes
-          .filter((item) => item.category === "Accessories") // Only include "Accessories" items
+        {accessories
+          .filter((item) => item.category === "Accessories")
           .map((item) => (
             <li key={item._id}>
               <strong>Item:</strong> {item.item}
@@ -131,9 +125,7 @@ export default function Clothes() {
               <button onClick={() => handleOnclick(item)}>
                 {item.ordered ? "Remove from cart" : "Add to cart"}
               </button>
-              <button onClick={() => handleDelete(item)}>
-                Delete Item
-              </button>
+              <button onClick={() => handleDelete(item)}>Delete Item</button>
             </li>
           ))}
       </ul>
