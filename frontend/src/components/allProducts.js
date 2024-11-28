@@ -5,83 +5,79 @@ import {
   toggleOrderService,
   deleteProductService} from '../fetch/fetchService'
 
-export default function Perfumes() {
-  const [perfumes, setPerfumes] = useState([]);
-  const [itemInput, setItemInput] = useState('')
-  const [priceInput, setPriceInput] = useState('')
-  const [radioInput, setRadioInput] = useState('');
+export default function AllProducts() {
+  const [allProducts, setAllProducts] = useState([]);
+  const [itemInput, setItemInput] = useState("");
+  const [priceInput, setPriceInput] = useState("");
+  const [radioInput, setRadioInput] = useState("");
 
-  const fetchPerfumes = async () => {
+  const fetchAllProducts = async () => {
     try {
       const data = await fetchService();
-      setPerfumes(data);
+      setAllProducts(data);
     } catch (error) {
       console.error("Fetch error:", error);
     }
   };
 
+//CREATE
   const handleCreate = async () => {
+    //To enforce complete inputs
     if (!itemInput || !priceInput || !radioInput) {
       alert("All fields must be filled out.");
       return;
     }
+    //Places inputs into usable object
     const newProduct = {
       item: itemInput,
       price: priceInput,
       category: radioInput,
     };
-
+    //Create inventory with given object
     try {
       await createProductService(newProduct);
-      fetchPerfumes(); // Refresh data
+      fetchAllProducts(); // Refresh data
     } catch (error) {
       console.error("Error creating product:", error);
     }
   };
 
-
-  // Function to handle CART toggle click
-  async function handleOnclick(item) {
-    
-
-
-    // Update the specific item's ordered status locally
-    try{
+//CART status
+  //Toggle cart status
+  const handleOnclick = async (item) => {
+    try {
       await toggleOrderService(item._id);
-      setPerfumes((prevPerfumes) =>
-        prevPerfumes.map((perfumeItem) =>
-          perfumeItem._id === item._id
-            ? perfumeItem.category === "Perfumes" // Check if the category is "Perfumes"
-              ? { ...perfumeItem, ordered: !perfumeItem.ordered } // Toggle the ordered status
-              : perfumeItem // If not "Perfumes", return as is
-            : perfumeItem // If IDs don't match, return as is
-      )
-    );
-  }catch (error) {
-    console.error("Error toggling order:", error);
-  }
-  }
+      setAllProducts((prevAllProducts) =>
+        prevAllProducts.map((AllProductsItem) =>
+            AllProductsItem._id === item._id
+            ? { ...AllProductsItem, ordered: !AllProductsItem.ordered }
+            : AllProductsItem
+        )
+      );
+    } catch (error) {
+      console.error("Error toggling order:", error);
+    }
+  };
 
-  //DELETE
+
+//Delete inventory
   const handleDelete = async (item) => {
     try {
       await deleteProductService(item._id);
-      fetchPerfumes(); // Refresh data
+      fetchAllProducts(); // Refresh data
     } catch (error) {
       console.error("Error deleting product:", error);
     }
   };
 
-  // Fetch the initial Perfumes data
+//Refresh page upon creation, deletion and submission
   useEffect(() => {
-    fetchPerfumes();
-  }, []); 
-  
-
+    fetchAllProducts();
+  }, []);
 
   return (
     <div>
-      <h1>Perfumes</h1>
+      <h1>All Products</h1>
       <h3>Create Inventory</h3>
       <label htmlFor="item">
         Item <input type="text" id="item" onChange={(e) => setItemInput(e.target.value)} />
@@ -116,13 +112,15 @@ export default function Perfumes() {
       <button onClick={handleCreate}>Submit</button>
 
       <ul>
-        {perfumes
-          .filter((item) => item.category === "Perfumes")
+        {allProducts
+          .filter((item) => item.category)
           .map((item) => (
             <li key={item._id}>
               <strong>Item:</strong> {item.item}
               <br />
               <strong>Price:</strong> £{item.price}
+              <br />
+              <strong>Category:</strong> {item.category}
               <br />
               <button onClick={() => handleOnclick(item)}>
                 {item.ordered ? "Remove from cart" : "Add to cart"}

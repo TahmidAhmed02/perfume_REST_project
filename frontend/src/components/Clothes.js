@@ -20,16 +20,20 @@ export default function Clothes() {
     }
   };
 
+//CREATE
   const handleCreate = async () => {
+    //To enforce complete inputs
     if (!itemInput || !priceInput || !radioInput) {
       alert("All fields must be filled out.");
       return;
     }
+    //Places inputs into usable object
     const newProduct = {
       item: itemInput,
       price: priceInput,
       category: radioInput,
     };
+    //Create inventory with given object
     try {
       await createProductService(newProduct);
       fetchClothes(); // Refresh data
@@ -38,6 +42,8 @@ export default function Clothes() {
     }
   };
 
+//CART status
+  //Toggle cart status
   const handleOnclick = async (item) => {
     try {
       await toggleOrderService(item._id);
@@ -53,6 +59,8 @@ export default function Clothes() {
     }
   };
 
+
+//Delete inventory
   const handleDelete = async (item) => {
     try {
       await deleteProductService(item._id);
@@ -62,6 +70,7 @@ export default function Clothes() {
     }
   };
 
+//Refresh page upon creation, deletion and submission
   useEffect(() => {
     fetchClothes();
   }, []);

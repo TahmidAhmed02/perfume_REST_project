@@ -8,6 +8,7 @@ import Perfumes from "./components/Perfumes"
 import Root from './components/Root'
 import Clothes from './components/Clothes'
 import Accessories from './components/Accessories'
+import AllProducts from './components/allProducts'
 
 
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
         <Route path="Cart" element={<Cart />} />
         
         <Route path="products" element={ <Product/> } >
+          <Route path="AllProducts" element={ <AllProducts/> }/>
           <Route path="perfumes" element={ <Perfumes/> }/>
           <Route path="clothes" element={ <Clothes/> }/>
           <Route path="accessories" element={ <Accessories/> }/>

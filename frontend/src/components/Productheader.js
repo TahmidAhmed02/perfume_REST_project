@@ -8,6 +8,7 @@ export default function ProductHeader() {
 
   return (
     <div className="header">
+      <NavLink to="allProducts">ALL PRODUCTS</NavLink>
       <NavLink to="clothes">clothes</NavLink>
       <NavLink to="perfumes">perfumes</NavLink>
       <NavLink to="accessories">accessories</NavLink>
