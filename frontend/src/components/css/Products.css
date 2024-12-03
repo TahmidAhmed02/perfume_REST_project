@@ -1,0 +1,12 @@
+.allProducts {
+    background-color: rgba(0, 0, 0, 0.685);
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border: 1px solid gold;
+    border-radius: 10px;
+}
+
+.aboutProducts {
+    text-align: center;
+}

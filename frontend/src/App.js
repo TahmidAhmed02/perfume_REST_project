@@ -9,6 +9,7 @@ import Root from './components/Root'
 import Clothes from './components/Clothes'
 import Accessories from './components/Accessories'
 import AllProducts from './components/allProducts'
+import './App.css'
 
 
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
@@ -37,7 +38,8 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <div>
+    <div id="main">
+      <h1 id='dubai'>Dubai Aroma</h1>
       <RouterProvider router={router}/>
     </div>
   );

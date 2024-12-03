@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    padding:10px;
+}
+
+.header a {
+    font-weight: 600;
+    text-decoration: none; /* Removes underline */
+    color: rgba(220, 192, 32, 0.819); 
+    font-size: 22px;
+}
+
+.header a:hover {
+    color: rgb(212, 184, 24);
+}
+
+.header a:active{
+    color: rgba(255, 217, 0, 0.463);
+}

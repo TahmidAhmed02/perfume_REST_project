@@ -4,6 +4,8 @@ import {
   createProductService,
   toggleOrderService,
   deleteProductService} from '../fetch/fetchService'
+import './css/allProducts.css'
+
 
 export default function Clothes() {
   const [clothes, setClothes] = useState([]);
@@ -77,53 +79,62 @@ export default function Clothes() {
 
   return (
     <div>
-      <h1>Clothes</h1>
-      <h3>Create Inventory</h3>
-      <label htmlFor="item">
-        Item <input type="text" id="item" onChange={(e) => setItemInput(e.target.value)} />
-      </label>
-      <label htmlFor="price">
-        Price <input type="number" id="price" onChange={(e) => setPriceInput(e.target.value)} />
-      </label>
-      <input
-        type="radio"
-        id="clothes"
-        name="color"
-        value="Clothes"
-        onChange={(e) => setRadioInput(e.target.value)}
-      />
-      <label htmlFor="clothes">Clothes</label>
-      <input
-        type="radio"
-        id="Perfumes"
-        name="color"
-        value="Perfumes"
-        onChange={(e) => setRadioInput(e.target.value)}
-      />
-      <label htmlFor="Perfumes">Perfumes</label>
-      <input
-        type="radio"
-        id="accessories"
-        name="color"
-        value="Accessories"
-        onChange={(e) => setRadioInput(e.target.value)}
-      />
-      <label htmlFor="accessories">Accessories</label>
-      <button onClick={handleCreate}>Submit</button>
+      <h3 className="createInventory">Create Inventory</h3>
 
-      <ul>
+      <section className="creation">
+      <section className="inputs">
+        <label htmlFor="item" className="label">
+          Item   <input className="input" type="text" id="item" onChange={(e) => setItemInput(e.target.value)} />
+        </label>
+        <label htmlFor="price" className="label">
+          Price <input className="input" type="number" id="price" onChange={(e) => setPriceInput(e.target.value)} />
+        </label>
+      </section>
+
+      <section>
+        <input
+          type="radio"
+          id="clothes"
+          name="color"
+          value="Clothes"
+          onChange={(e) => setRadioInput(e.target.value)}
+        />
+        <label htmlFor="clothes">Clothes</label>
+        <input
+          type="radio"
+          id="Perfumes"
+          name="color"
+          value="Perfumes"
+          onChange={(e) => setRadioInput(e.target.value)}
+        />
+        <label htmlFor="Perfumes">Perfumes</label>
+        <input
+          type="radio"
+          id="accessories"
+          name="color"
+          value="Accessories"
+          onChange={(e) => setRadioInput(e.target.value)}
+        />
+        <label htmlFor="accessories">Accessories</label>
+      </section>
+
+      <button className="submit" onClick={handleCreate}>Submit</button>
+    </section>
+
+    <h1 className="apiHeader">Clothes</h1>
+      <ul className="test">
         {clothes
           .filter((item) => item.category === "Clothes")
           .map((item) => (
-            <li key={item._id}>
-              <strong>Item:</strong> {item.item}
+            <li key={item._id} className="mapped">
+              <strong className="items">Item:</strong> {item.item}
               <br />
-              <strong>Price:</strong> £{item.price}
+              <strong className="items">Price:</strong> £{item.price}
               <br />
-              <button onClick={() => handleOnclick(item)}>
+              <button className="items" id="button1" onClick={() => handleOnclick(item)}>
                 {item.ordered ? "Remove from cart" : "Add to cart"}
               </button>
-              <button onClick={() => handleDelete(item)}>Delete Item</button>
+              <button className="items" id="button2" onClick={() => handleDelete(item)}>Delete Item</button>
             </li>
           ))}
       </ul>

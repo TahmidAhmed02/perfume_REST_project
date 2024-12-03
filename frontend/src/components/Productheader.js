@@ -1,4 +1,5 @@
 import React from "react";
+import './css/ProductHeader.css'
 
 // Import the NavLink component.
 import { NavLink } from "react-router-dom";
@@ -7,11 +8,11 @@ export default function ProductHeader() {
 
 
   return (
-    <div className="header">
-      <NavLink to="allProducts">ALL PRODUCTS</NavLink>
-      <NavLink to="clothes">clothes</NavLink>
-      <NavLink to="perfumes">perfumes</NavLink>
-      <NavLink to="accessories">accessories</NavLink>
+    <div className="productHeader">
+      <NavLink  to="allProducts"><span id='all'>ALL</span> Products</NavLink>
+      <NavLink to="clothes">Clothes</NavLink>
+      <NavLink to="perfumes">Perfumes</NavLink>
+      <NavLink to="accessories">Accessories</NavLink>
     </div>
   )
 }

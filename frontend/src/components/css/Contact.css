@@ -1,0 +1,11 @@
+#contactHeader {
+    text-align: center;
+}
+
+.contactContainer {
+    display: inline-flex;
+}
+
+.contactTitle{
+    border: 1px solid gold;
+}

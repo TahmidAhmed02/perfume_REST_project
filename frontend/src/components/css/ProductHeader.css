@@ -1,0 +1,25 @@
+.productHeader {
+    display: flex;
+    justify-content:space-around;
+    text-decoration: none; 
+    padding:10px;
+}
+
+.productHeader a {
+    text-decoration: none; 
+    color: rgba(255, 217, 0, 0.767); 
+    font-size: 20px;
+}
+
+.productHeader a:hover {
+    color: rgba(255, 217, 0);
+}
+
+.productHeader a:active{
+    color: rgba(255, 217, 0, 0.463);
+}
+
+#all{
+    font-size: 22px;
+    font-weight: 600;
+}

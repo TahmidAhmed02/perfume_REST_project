@@ -1,0 +1,24 @@
+#main {
+    background-image: repeating-linear-gradient(45deg, rgba(255, 240, 186, 0) 0px, rgba(255, 240, 186, 0.21) 1px,transparent 1px, transparent 11px,rgba(255, 240, 186, 0.067) 11px, rgba(255, 240, 186, 0.045) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(0deg, rgba(255, 240, 186, 0.045) 0px, rgba(255, 240, 186, 0.04) 1px,transparent 1px, transparent 11px,rgba(255, 240, 186, 0.084) 11px, rgba(255, 240, 186, 0) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(135deg, rgba(255,240,186, 0.43) 0px, rgba(255, 240, 186, 0.242) 1px,transparent 1px, transparent 11px,rgba(255, 240, 186, 0.275) 11px, rgba(255,240,186, 0.43) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(90deg, rgba(255, 240, 186, 0.21) 0px, rgba(255, 240, 186, 0.133) 1px,transparent 1px, transparent 11px,rgba(255, 240, 186, 0.253) 11px, rgba(255, 240, 186, 0.259) 12px,transparent 12px, transparent 32px),linear-gradient(90deg, rgb(0, 0, 0),rgb(34, 34, 34));
+    min-height: 850px;
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    margin: 0;  /* Remove default margin */
+    padding: 0; /* Remove any padding if needed */
+}
+
+#dubai{
+    text-align: center;
+    color:gold;
+}
+
+h1 {
+    margin: 0;  /* Remove default margin */
+    padding: 0; /* Remove any padding if needed */
+  }
+
+  input, button {
+    cursor: pointer;
+  }
