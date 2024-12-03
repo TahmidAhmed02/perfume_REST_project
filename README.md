@@ -55,10 +55,11 @@ An elegant e-commerce application built using the **MERN stack** (MongoDB, Expre
 3. Start the servers:  
    - Backend:  
      ```bash
-     npm start
+     npm run devStart
      ```  
    - Frontend:  
      ```bash
+     cd frontend
      npm start
      ```  
 
@@ -68,8 +69,9 @@ An elegant e-commerce application built using the **MERN stack** (MongoDB, Expre
 
 1. Open the app at `http://localhost:3000/products/clothes`.  
 2. View the list of products.  
-3. Click the "Toggle Ordered" button to update the product status.  
-4. Use CRUD operations to manage products directly from the frontend.  
+3. Click the "Add to cart" or "Remove from cart" button to update the product status.
+4. Click the "Delete Item" button to delete the product from database 
+5. Use CRUD operations to manage products directly from the frontend.  
 
 ---
 
