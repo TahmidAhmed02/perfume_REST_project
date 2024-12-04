@@ -5,10 +5,19 @@
     background-size: contain; /* Ensures the entire image is visible */
     background-position: center; /* Keeps the image centered */
     background-color: black; /* Fills any empty space with black */
-    height: 350px; /* Full viewport height */
+    height: 400px; /* Full viewport height */
     z-index: 1;
     color: white;
     padding: 20px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    padding-right: 25px;
+    text-align: center;
 }
 
 .aboutVision {
@@ -23,6 +32,10 @@
     color: white;
     padding: 20px;
     margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .aboutVision::before {
@@ -39,16 +52,20 @@
 
 .aboutValues {
     position: relative; /* Enables layering for the overlay */
-    background-image: url('../../../public/images/values.png');
+    background-image: url('../../../public/images/values.jpg');
     background-repeat: no-repeat;
     background-size: contain; /* Ensures the entire image is visible */
     background-position: center; /* Keeps the image centered */
-    background-color: #20242d; /* Fills any empty space with black */
+    background-color: #090909;    /* Fills any empty space with black */
     height: 300px; /* Height of the container */
     z-index: 1;
     color: white;
     padding: 20px;
     margin-top: 30px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .aboutValues::before {
