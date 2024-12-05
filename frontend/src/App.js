@@ -39,7 +39,10 @@ const router = createBrowserRouter(
 function App() {
   return (
     <div id="main">
-      <h1 id='dubai'>Dubai Aroma</h1>
+      <div className="top">
+        <img className="logo" src="../images/logo.png"></img>
+        <h1 id='dubai'>Dubai Aroma</h1>
+      </div>
       <RouterProvider router={router}/>
     </div>
   );

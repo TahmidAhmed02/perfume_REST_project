@@ -12,13 +12,27 @@
 #dubai{
     text-align: center;
     color:gold;
+    margin-top: 35px;
 }
 
 h1 {
     margin: 0;  /* Remove default margin */
     padding: 0; /* Remove any padding if needed */
-  }
+}
 
-  input, button {
+input, button {
     cursor: pointer;
+}
+
+.logo {
+  height: 75px;
+  border-radius: 20px;
+  margin: 25px;
+  padding: 0 3px;
+  border: 3px solid gold;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
   }
