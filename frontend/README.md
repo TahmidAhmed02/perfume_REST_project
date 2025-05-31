@@ -1,3 +1,12 @@
+### For VISITORS
+
+1. Open terminal
+2. npm start
+3. Open 2nd terminal
+4. cd frontend
+5. npm start (Opens live server now linked with backend)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
