@@ -1,3 +1,13 @@
+### For VISITORS
+
+1. Open terminal
+2. npm start
+3. Open 2nd terminal
+4. cd frontend
+5. npm start (Opens live server now linked with backend)
+
+
+
 # E-Commerce App 🛒  
 
 An elegant e-commerce application built using the **MERN stack** (MongoDB, Express, React, Node.js). This app allows users to view products, toggle their order status, and manage product details via a simple CRUD interface.
