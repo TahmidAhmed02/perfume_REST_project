@@ -12,11 +12,10 @@
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "mongodb": "^6.17.0",
+    "dotenv": "^16.4.5",
     "mongoose": "^8.8.1"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
-    "start": "node server.js",
     "nodemon": "^3.1.7"
   }
 }
