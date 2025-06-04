@@ -1,16 +1,19 @@
 
+
+
+
 ###
 ////////////////////////////////////////////////////////////////////Products
 //REST Testing
 
 //Inventory
-GET http://localhost:5000/product
+GET https://perfume-rest-project.onrender.com/product
 
 ###
-GET http://localhost:5000/product/673f30ab5a93805ed3dd93bc
+GET https://perfume-rest-project.onrender.com/product/673f30ab5a93805ed3dd93bc
 
 ###
-POST http://localhost:5000/product
+POST https://perfume-rest-project.onrender.com/product
 Content-Type: application/json
 
 {
@@ -20,11 +23,11 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/product/6745cfb600bed70e67b65047
+DELETE https://perfume-rest-project.onrender.com/product/6745cfb600bed70e67b65047
 
 ###
 //use this with a button to update ordered from false to true. Like "BUY" button
-PATCH http://localhost:5000/product/6740d1aee43b451e045d5161/toggleOrder
+PATCH https://perfume-rest-project.onrender.com/product/6740d1aee43b451e045d5161/toggleOrder
 Content-Type: application/json
 
 

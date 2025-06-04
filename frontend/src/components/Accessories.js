@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+
+export const BASE_URL = "https://perfume-rest-project.onrender.com"
+
 import {
   fetchService,
   createProductService,
@@ -40,7 +43,7 @@ export default function Accessories() {
 
   // Function to handle CART toggle click
   async function handleOnclick(item) {
-    await fetch(`http://localhost:5000/product/${item._id}/toggleOrder`, {
+    await fetch(`${BASE_URL}/product/${item._id}/toggleOrder`, {
       method: "PATCH",
     }
   );
