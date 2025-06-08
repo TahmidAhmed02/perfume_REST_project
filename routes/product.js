@@ -19,10 +19,12 @@ router.get('/:id', getProduct, async(req, res) => {
 
 // Creating one
 router.post('/', async (req, res) => {
+
     const product = new Product({
         item: req.body.item,
         price: req.body.price,
         category: req.body.category
+        
     })
 
     try{
