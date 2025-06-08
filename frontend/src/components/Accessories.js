@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-export const BASE_URL = "https://perfume-rest-project.onrender.com"
-
 import {
   fetchService,
   createProductService,
   toggleOrderService,
   deleteProductService} from '../fetch/fetchService'
+
+export const BASE_URL = "https://perfume-rest-project.onrender.com"
+
 
 export default function Accessories() {
   const [accessories, setAccessories] = useState([]);
