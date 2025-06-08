@@ -40,7 +40,7 @@ function App() {
   return (
     <div id="main">
       <div className="top">
-        <img className="logo" src="../images/logo.png"></img>
+        <img className="logo" src="../images/logo.png" alt="bg"></img>
         <h1 id='dubai'>Dubai Aroma</h1>
       </div>
       <RouterProvider router={router}/>

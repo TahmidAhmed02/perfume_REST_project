@@ -128,7 +128,7 @@ export default function Accessories() {
     <h1 className="apiHeader">ALL Products</h1>
       <ul className="test">
         {accessories
-          .filter((item) => item.category == 'Accessories')
+          .filter((item) => item.category === 'Accessories')
           .map((item) => (
             <li key={item._id} className="mapped">
               <strong className="items">Item:</strong> {item.item}

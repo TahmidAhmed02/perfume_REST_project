@@ -127,7 +127,7 @@ export default function Perfumes() {
     <h1 className="apiHeader">ALL Products</h1>
       <ul className="test">
         {perfumes
-          .filter((item) => item.category == 'Perfumes')
+          .filter((item) => item.category === 'Perfumes')
           .map((item) => (
             <li key={item._id} className="mapped">
               <strong className="items">Item:</strong> {item.item}

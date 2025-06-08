@@ -16,20 +16,17 @@ export const fetchService = async () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProduct),
     });
-    console.log("created 1")
   };
   
   export const toggleOrderService = async (id) => {
     return await fetch(`${BASE_URL}/product/${id}/toggleOrder`, {
       method: "PATCH",
     });
-    console.log("toggle 1")
   };
   
   export const deleteProductService = async (id) => {
     return await fetch(`${BASE_URL}/product/${id}`, {
       method: "DELETE",
     });
-    console.log("delete 1")
   };
   
