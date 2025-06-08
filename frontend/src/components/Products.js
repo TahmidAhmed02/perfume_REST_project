@@ -12,6 +12,7 @@ export default function Product() {
         <p className="para">Browse through our categories and find the perfect items to suit your style and budget. Shop with confidence, knowing that every product is chosen with care and backed by our commitment to quality and customer satisfaction.</p>
         <p className="para">Don’t miss out on our latest arrivals and special offers—start exploring now and experience shopping like never before!</p>
       <p>(* You are currently in the Default Admin Account *)</p>
+      <p>(* Delete items after testing the site to free up database storage, Thank you :) *)</p>
       </section>
       
       <section className="productApi">

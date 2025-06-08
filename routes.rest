@@ -17,7 +17,7 @@ POST https://perfume-rest-project.onrender.com/product
 Content-Type: application/json
 
 {
-    "item": "Item 5",
+    "item": "Item 6",
     "price": 99.00,
     "category": "Perfumes" 
 }
